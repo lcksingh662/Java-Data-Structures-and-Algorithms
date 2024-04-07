@@ -1,0 +1,29 @@
+// Problem statement
+// You have a list of numbers that are not in order. You want to find the sum of the differences between the indices of pairs of numbers that are in the wrong order. A pair of numbers is considered to be in the wrong order if the smaller number comes after the larger number in the list.
+
+// Example:
+// Input: N = 5 
+// A = [3, 2, 11, 5, 1]
+
+// Output: 6
+
+public class Solution {
+    public static int getInversions(int[] arr, int n){
+        //Your code goes here
+        int sum = 0;
+        for(int i = 0; i < n - 1; i++){
+            int min = i;
+            for(int j = i + 1; j < n; j++){
+                if(arr[j] < arr[min]){
+                    min = j;
+                }
+            }
+            int temp = arr[min];
+            arr[min] = arr[i];
+            arr[i] = temp;
+
+            sum = sum + (min - i);
+        }
+        return sum;
+    }
+}

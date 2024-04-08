@@ -1,0 +1,31 @@
+// Problem statement
+// You have been given two sorted arrays/lists(ARR1 and ARR2) of size N and M respectively, merge them into a third array/list such that the third array is also sorted.
+
+public class Solution {  
+
+    public static int[] merge(int arr1[], int arr2[]) {
+    	//Your code goes here
+        int[] result = new int [arr1.length + arr2.length];
+        int ptr1 = 0;
+        int ptr2 = 0;
+        int finalPtr = 0;
+        while(ptr1 < arr1.length && ptr2 < arr2.length){
+            if(arr1[ptr1] < arr2[ptr2]){
+                result[finalPtr++] = arr1[ptr1++];
+            }
+            else{
+                result[finalPtr++] = arr2[ptr2++];
+            }
+        }
+        
+        while(ptr1 < arr1.length){
+            result[finalPtr++] = arr1[ptr1++];
+        }
+        while(ptr2 < arr2.length){
+            result[finalPtr++] = arr2[ptr2++];
+        }
+
+        return result;
+    }
+
+}

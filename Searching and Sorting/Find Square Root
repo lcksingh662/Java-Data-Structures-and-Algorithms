@@ -1,0 +1,25 @@
+//You are given a positive integer ‘N’. Your task is to find and return its square root. If ‘N’ is not a perfect square, then return the floor value of sqrt(N).
+
+public class Solution {
+
+	public static int sqrtN(long N) {
+		/*
+		 * Write your code here
+		 */
+
+		long low = 2;
+		long high = N;
+		long mid = -1;
+
+		while(low <= high){
+			mid = low + ((high - low) / 2);
+			if(mid <= (N/mid)){  //mid*mid<
+				low = mid + 1;
+			}else{
+				high = mid - 1;
+			}
+		}
+
+		return (int)low-1;
+	}
+}

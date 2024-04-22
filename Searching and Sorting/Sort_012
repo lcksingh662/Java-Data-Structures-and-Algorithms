@@ -1,0 +1,52 @@
+//You are given an integer array/list(ARR) of size N. It contains only 0s, 1s and 2s. Write a solution to sort this array/list in a 'single scan'.
+public class Solution {
+
+    public static void sort2(int[] arr, int n){
+        //Your code goes here
+        int start = 0;
+        int ptr = n - 1;
+        while(ptr >= 0 && arr[ptr] == 2){
+            ptr--;
+        }
+        while(start < ptr){
+            if(arr[start] == 2){
+                arr[start] = arr[ptr];
+                arr[ptr] = 2;
+                ptr--;
+                while(ptr >= 0 && arr[ptr] == 2){
+                    ptr--;
+                }
+            }
+            start++;
+        }
+    }
+    public static void sort1(int[] arr, int n){
+        //Your code goes here
+        int start = 0;
+        int ptr = n - 1;
+        while(ptr >= 0 && arr[ptr] == 2){
+            ptr--;
+        }
+        while(ptr >= 0 && arr[ptr] == 1){
+            ptr--;
+        }
+        while(start < ptr){
+            if(arr[start] == 1){
+                arr[start] = arr[ptr];
+                arr[ptr] = 1;
+                ptr--;
+                while(ptr >= 0 && arr[ptr] == 1){
+                    ptr--;
+                }
+            }
+            start++;
+        }
+    }
+
+    public static void sort012(int[] arr, int n){
+        //Your code goes here
+        sort2(arr, n);
+        sort1(arr, n);
+    }
+
+}

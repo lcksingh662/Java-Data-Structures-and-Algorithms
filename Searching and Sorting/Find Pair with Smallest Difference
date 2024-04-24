@@ -1,0 +1,22 @@
+// Problem statement
+// Given two unsorted arrays of non-negative integers, 'arr1' and 'arr2' of size 'N' and 'M', respectively. Your task is to find the pair of elements (one from each array), such that their absolute (non-negative) difference is the smallest, and return the min difference.
+public class Solution {
+    public static int smallestDifferencePair(int []arr1, int n, int []arr2, int m) {
+        // Write your code here.
+        int diff = Integer.MAX_VALUE;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                int temp;
+                if(arr1[i] > arr2[j]){
+                    temp = arr1[i] - arr2[j];
+                }else{
+                    temp = arr2[j] - arr1[i];
+                }
+                if(temp < diff){
+                    diff = temp;
+                }
+            }
+        }
+        return diff;
+    }
+}

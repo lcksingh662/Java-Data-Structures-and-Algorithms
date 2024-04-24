@@ -1,0 +1,22 @@
+// Problem statement
+// You have been given a random integer array/list(ARR) of size N. You are required to find and return the second largest element present in the array/list.
+public class Solution {  
+
+    public static int secondLargestElement(int[] arr, int n) {
+    	//Your code goes here
+        int max = arr[0];
+        int secondMax = arr[0];
+
+        for(int i = 1; i < n; i++){
+            if(arr[i] > max){
+                secondMax = max;
+                max = arr[i];
+            }else if(arr[i] > secondMax){
+                secondMax = arr[i];
+            }
+        }
+
+        return secondMax;
+    }
+
+}
